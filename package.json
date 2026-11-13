@@ -1,0 +1,44 @@
+{
+  "name": "festie-ads",
+  "version": "0.0.0",
+  "private": true,
+  "packageManager": "pnpm@10.33.0",
+  "engines": {
+    "node": ">=24 <25"
+  },
+  "scripts": {
+    "dev": "next dev -p 3100",
+    "build": "next build",
+    "start": "next start -p 3100",
+    "typecheck": "tsc --noEmit",
+    "test": "vitest run",
+    "db:generate": "drizzle-kit generate",
+    "db:migrate": "drizzle-kit migrate",
+    "db:check": "drizzle-kit check"
+  },
+  "dependencies": {
+    "@aws-sdk/client-s3": "^3.1166.0",
+    "@aws-sdk/s3-request-presigner": "^3.1166.0",
+    "@neondatabase/serverless": "^1.2.0",
+    "better-auth": "1.7.20",
+    "drizzle-orm": "^0.45.4",
+    "image-size": "^2.1.0",
+    "lucide-react": "0.576.0",
+    "next": "^15.5.29",
+    "react": "^19.3.1",
+    "react-dom": "^19.3.1",
+    "zod": "^4.6.7"
+  },
+  "devDependencies": {
+    "@tailwindcss/postcss": "^4.3.5",
+    "@types/node": "^24.19.2",
+    "@types/pg": "^8.23.1",
+    "@types/react": "^19.3.0",
+    "@types/react-dom": "^19.3.0",
+    "drizzle-kit": "^0.31.11",
+    "pg": "^8.23.1",
+    "tailwindcss": "^4.3.5",
+    "typescript": "^5.9.3",
+    "vitest": "^5.1.0"
+  }
+}

@@ -1,0 +1,147 @@
+@import "tailwindcss";
+
+/* Festie design tokens, copied from apps/admin/src/styles/tokens.css (docs/design-system.md in the festie repo).
+   Only these tokens are used in the app: no hex, no px, no arbitrary values in components. */
+:root {
+  --text-3xs: 0.61225rem;
+  --text-2xs: 0.67375rem;
+  --text-xs: 0.735rem;
+  --text-sm: 0.8575rem;
+  --text-base: 0.91875rem;
+  --text-md: 0.98rem;
+  --text-lg: 1.1025rem;
+  --text-xl: 1.28625rem;
+  --text-2xl: 1.53125rem;
+  --text-3xl: 1.89875rem;
+
+  --radius: 0.625rem;
+
+  --background: #fafaf9;
+  --foreground: oklch(0 0 0);
+  --card: #f9fafb;
+  --card-foreground: oklch(0 0 0);
+  --popover: oklch(0.998 0.002 264);
+
+  --primary: #ef4b49;
+  --primary-foreground: #ffffff;
+
+  --secondary: oklch(0.965 0.006 260);
+  --secondary-foreground: oklch(0.18 0.012 260);
+  --muted: #f0efee;
+  --muted-foreground: #6b7280;
+  --accent: oklch(0.96 0.006 260);
+  --destructive: oklch(0.61 0.21 25);
+  --destructive-foreground: #ffffff;
+
+  --border: oklch(0.86 0.008 260);
+  --input: oklch(0.955 0.005 260);
+  --ring: oklch(0.57 0.19 259 / 28%);
+
+  --chart-1: oklch(0.62 0.2 259);
+  --chart-2: oklch(0.64 0.14 188);
+
+  --shell: #f3f4f6;
+  --shell-hover: #e5e7eb;
+  --shell-control: var(--shell);
+  --surface: #ffffff;
+
+  --success: oklch(59.6% 0.145 163.225);
+  --warning: oklch(66.6% 0.179 58.318);
+  --info: oklch(54.6% 0.245 262.881);
+
+  --overlay-scrim: color-mix(in oklab, var(--foreground) 45%, transparent);
+  --card-shadow-slight: 0 1px 2px rgb(0 0 0 / 0.03), 0 2px 8px -2px rgb(0 0 0 / 0.05);
+  --table-header-bg: color-mix(in oklab, var(--muted) 72%, var(--card) 28%);
+  --table-header-text: color-mix(in oklab, var(--foreground) 68%, transparent);
+  --table-row-hover-bg: #faf9f8;
+
+  font-family: var(--font-jakarta), "Plus Jakarta Sans", ui-sans-serif, system-ui, -apple-system, sans-serif;
+  font-size: var(--text-base);
+  line-height: 1.5;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Phones get a slightly larger base, like festie. */
+@media (max-width: 640px) {
+  :root {
+    --text-xs: 0.79625rem;
+    --text-sm: 0.91875rem;
+    --text-base: 0.98rem;
+  }
+}
+
+@theme inline {
+  --text-3xs: var(--text-3xs);
+  --text-2xs: var(--text-2xs);
+  --text-xs: var(--text-xs);
+  --text-sm: var(--text-sm);
+  --text-base: var(--text-base);
+  --text-md: var(--text-md);
+  --text-lg: var(--text-lg);
+  --text-xl: var(--text-xl);
+  --text-2xl: var(--text-2xl);
+  --text-3xl: var(--text-3xl);
+
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --radius-2xl: calc(var(--radius) + 8px);
+  --radius-3xl: calc(var(--radius) + 12px);
+  --radius-inset: 24px;
+
+  --tracking-caps: 0.12em;
+
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-shell: var(--shell);
+  --color-shell-hover: var(--shell-hover);
+  --color-shell-control: var(--shell-control);
+  --color-surface: var(--surface);
+  --color-success: var(--success);
+  --color-warning: var(--warning);
+  --color-info: var(--info);
+  --color-table-header: var(--table-header-bg);
+  --color-table-header-text: var(--table-header-text);
+  --color-table-row-hover: var(--table-row-hover-bg);
+}
+
+@utility h-control {
+  height: 2.5rem;
+}
+
+@layer base {
+  body {
+    background: var(--shell);
+    color: var(--foreground);
+  }
+  *:focus-visible {
+    outline: none;
+  }
+}
+
+/* One panel per block: flat, borderless, tinted (festie `.panel-card`). */
+@utility panel-card {
+  background: var(--card);
+  color: var(--foreground);
+}
+
+@utility card-shadow-slight {
+  box-shadow: var(--card-shadow-slight);
+}
